@@ -27,7 +27,7 @@ public class DrumKit extends MouseAdapter {
    	 // 2. Make the frame visible
    	 frame.setVisible(true);
    	 // 3. Set the size of the frame
-   	 frame.setSize(2000,1400);
+   	 frame.setSize(3000,3000);
    	 // 4. Set the title of the frame
    	 frame.setTitle("The Frame");
    	 // 5. Make a JPanel and initialize it.
@@ -37,7 +37,7 @@ public class DrumKit extends MouseAdapter {
    	 // 7. Download an image of a drum from the Internet. Drop it into your Eclipse project under "default package".
     
    	 // 8. Put the name of your image in a String variable.
-    String name = ("drum.jpg");
+    String name = ("drumkit.jpg");
    	 // 9. Edit the next line to use your String variable
    
 drumLabelWithImage = createLabelImage(name);
@@ -49,19 +49,25 @@ drumLabelWithImage = createLabelImage(name);
    	 // 12. call the pack() method on the frame
    	 frame.pack();
    	 // 13. add a mouse listener to drumLabelWithImage.
-
+   	 drumLabelWithImage.addMouseListener(this);
     }
 
     public void mouseClicked(MouseEvent e) {
    	 // 14. When the mouse is clicked, print "mouse clicked"
-
+    	System.out.println("hello");
    	 JLabel drumClicked = (JLabel) e.getSource();
    	 // 15. Download a drum sound and drop it into your "default package". You can find it on freesound.org. To download it, log in as leagueofamazing/code4life.
    	 // 16. If they clicked on the drumImage...
-
+   	if(e.getSource()==drumLabelWithImage) {
+   		
+   		
+   	
    		 // 17. ...use the playSound method to play a drum sound.
-
+   		playSound("drumsound.wav");
+   		
+   	}
    	 // 18. Add more images to make a drumkit. Remember to add a mouse listener to each one.
+   	
     }
 
     private JLabel createLabelImage(String fileName)
