@@ -29,7 +29,7 @@ import java.io.File;
 public class Jeopardy implements ActionListener {
 	private JButton firstButton;
 	private JButton secondButton;
-	private JButton thirdButton, fourthButton;
+	private JButton thirdButton, fourthButton, fifthButton;
 	
 	private JPanel quizPanel;
 	int score = 0;
@@ -46,30 +46,38 @@ public class Jeopardy implements ActionListener {
 		frame.setLayout(new BorderLayout());
 		
 		// 1. Make the frame show up
-
-	frame.setVisible(true);
+                frame.setVisible(true);
+	
 		// 2. Give your frame a title
 		frame.setTitle("Jeopardy");
+                
 		// 3. Create a JPanel variable to hold the header using the createHeader method
 		JPanel panel = createHeader("Capitals");
+                
 		// 4. Add the header component to the quizPanel
 		quizPanel.add(panel);
+                
 		// 5. Add the quizPanel to the frame
 		frame.add(quizPanel);
 		
 		// 6. Use the createButton method to set the value of firstButton 
 		firstButton =createButton("$100");
+                
 	// 7. Add the firstButton to the quizPanel
 		quizPanel.add(firstButton);
+                
 		// 8. Write the code inside the createButton() method below. Check that your game looks like Figure 1 in the Jeopardy Handout - http://bit.ly/1bvnvd4.
 		
 		// 9. Use the secondButton variable to hold a button using the createButton method
 		secondButton = createButton("$200");
+                
 		// 10. Add the secondButton to the quizPanel
 		quizPanel.add(secondButton);
+                
 		// 11. Add action listeners to the buttons (2 lines of code)
 		firstButton.addActionListener(this);
 		secondButton.addActionListener(this);
+               
 		// 12. Fill in the actionPerformed() method below
 				
 		frame.pack();
@@ -78,18 +86,33 @@ public class Jeopardy implements ActionListener {
 		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize().height, Toolkit.getDefaultToolkit().getScreenSize().width);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		playJeopardyTheme();
 		
 		
-	}
-
+		
+	
 	
 	  //13. Use the method provided to play the Jeopardy theme music 
-		
+		playJeopardyTheme();
 	 //14. Add buttons so that you have $200, $400, $600, $800 and $1000 questions
-	 
+         
+         //ThirdButton added to Panel
+	 thirdButton = createButton("$300");
+         quizPanel.add(thirdButton);
+         
+         //FourthButton added to Panel
+         fourthButton = createButton("$400");
+         quizPanel.add(fourthButton);
+         
+         //FifthButton added to Panel
+         fifthButton = createButton("$500");
+         quizPanel.add(fifthButton);
+         
+                thirdButton.addActionListener(this);
+                fourthButton.addActionListener(this);
+                fifthButton.addActionListener(this);
 	 //[optional] Use the showImage or playSound methods when the user answers a question 
-	 
+	 }
+
 	
 	private JButton createButton(String dollarAmount) {
 		// Create a new JButton
@@ -99,7 +122,7 @@ public class Jeopardy implements ActionListener {
 		First.setText(dollarAmount);
 		
 		// Increment the buttonCount (this should make the layout vertical)
-		buttonCount+=2;
+		buttonCount+=3;
 		// Return your new button instead of the temporary button
 		
 		return First;
@@ -114,30 +137,53 @@ public class Jeopardy implements ActionListener {
 
 		// Use the method that plays the jeopardy theme music.
 		playJeopardyTheme();
-		JButton buttonPressed = (JButton) arg0.getSource();
+		
 		// If the buttonPressed was the firstButton
+                JButton buttonPressed = (JButton) arg0.getSource();
 		if(arg0.getSource()==firstButton) {
 			// Call the askQuestion() method
-			askQuestion("What is the capital of Australia?","Canberra",100);
+			askQuestion("What is the capital of Brazil?","Brasilia",100);
 			// Fill in the askQuestion() method. When you play the game, the score should change.
+                       firstButton.setText(""); 
 		}
-		// Or if the buttonPressed was the secondButton
-		else {
+		//  if the buttonPressed was the secondButton
+                else if(arg0.getSource()==secondButton) {
 
 			// Call the askQuestion() method with a harder question
-			askQuestion("What is the capital of Indonesia?","Jakarta",500);
+                       
+			askQuestion("What is the capital of Argentina?","Buenos Aires",200);
+                        
 		
 		// Clear the button text (set the button text to nothing)
 			secondButton.setText("");
 		}
+                //if the buttonPressed was the thirdButton
+                else if(buttonPressed == thirdButton){
+                askQuestion("What is the capital of Venezuela?","Caracas", 300);
+                thirdButton.setText("");
+                }
+                //if the buttonPressed was the fourthButton
+                else if(buttonPressed ==fourthButton){
+                askQuestion("What is the capital of Colombia?","Bogota", 400);
+                fourthButton.setText("");
+                }
+                
+                //if the buttonPressed was the fifthButton
+                else if(buttonPressed == fifthButton){
+                  askQuestion("What is the capital of Paraguay?","Asuncion",400);   
+                 fifthButton.setText("");
+                 }
+                
 	}
+       
 
 	private void askQuestion(String question, String correctAnswer, int prizeMoney) {
 
 		// Use a pop up to ask the user the question
-		String firstQuestion = JOptionPane.showInputDialog("What is the capital of Australia?");
+		String answer= JOptionPane.showInputDialog(question);
+                
 		// If the answer is correct
-		if(firstQuestion.equalsIgnoreCase("canberra")) {
+		if(answer.equalsIgnoreCase(correctAnswer)) {
 			// Increase the score by the prizeMoney
 			score+=prizeMoney;
 			// Call the updateScore() method
@@ -149,11 +195,13 @@ public class Jeopardy implements ActionListener {
 		else {
 			// Decrement the score by the prizeMoney
 			score-=prizeMoney;
+                                
 			// Pop up a message to tell the user the correct answer
 			JOptionPane.showMessageDialog(null,"Incorrect");
-			JOptionPane.showMessageDialog(null, "The correct answer is Canberra");
+			JOptionPane.showMessageDialog(null, "Correct answer is "+correctAnswer);
 			// Call the updateScore() method
 			updateScore();
+                   
 		}
 		
 	}
