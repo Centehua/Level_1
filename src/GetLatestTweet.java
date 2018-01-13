@@ -5,6 +5,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
+
 public class GetLatestTweet implements ActionListener {
 	JFrame frame;
 	JPanel panel;
@@ -24,15 +30,24 @@ private void newUI() {
         
       //button and text added to panel 
         panel = new JPanel();
-        button = new JButton();
+        button = new JButton("Search the Twitterverse");
         text= new JTextField(20);
-        panel.add(button);
         panel.add(text);
+<<<<<<< HEAD
          
         button.addActionListener(this);
      
         //panel added to frame 
        frame.add(panel);
+=======
+        panel.add(button);
+        button.addActionListener(this);
+     
+       
+		
+        
+        frame.add(panel);
+>>>>>>> origin/master
         
        //frame pack and exit 
         frame.pack();
@@ -41,11 +56,45 @@ private void newUI() {
 	
 }
 
-    @Override
+   
     public void actionPerformed(ActionEvent e) {
+<<<<<<< HEAD
             Object a = e.getSource();
          if(button==a)    {
          System.out.println("a");
          }    
+=======
+        if(button==e.getSource()) {
+        	System.out.println("tweet tweet");
+        	String tweet= text.getText();
+       String tweetText =getLatestTweet(tweet);
+       
+	System.out.println(tweetText);
+        	
+  
+        }
+>>>>>>> origin/master
     }
+    private String getLatestTweet(String searchingFor) {
+
+		Twitter twitter = new TwitterFactory().getInstance();
+		AccessToken accessToken = new AccessToken(
+				"2453751158-IVD2VGZsvwZiRKxNe3Gs2lMjg30nvSkV1xSuPFf",
+				"vBa5PjKfuMTK1LLBG51nCUI9r5d6Ph5cAHrS73spg6Nvu");
+		twitter.setOAuthConsumer("YqeZdD2hYxOKv4QOkmp0i2djN",
+				"6XUB1r8KXBvd8Pk9HHW3NgphMxHvHWBLAr5TihnckMU0ttyGST");
+		twitter.setOAuthAccessToken(accessToken);
+
+		Query query = new Query(searchingFor);
+		try {
+			QueryResult result = twitter.search(query);
+			return result.getTweets().get(0).getText();
+		} catch (Exception e) {
+			System.err.print(e.getMessage());
+			return "What the heck is that?";
+		}
+	}
+
+
+    
 }
