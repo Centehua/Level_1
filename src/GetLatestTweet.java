@@ -10,6 +10,7 @@ public class GetLatestTweet implements ActionListener {
 	JPanel panel;
 	JButton button;
 	JTextField text;
+       
 	
  public static void main(String[] args) {
 	 new GetLatestTweet().newUI();
@@ -27,11 +28,11 @@ private void newUI() {
         text= new JTextField(20);
         panel.add(button);
         panel.add(text);
-        
+         
         button.addActionListener(this);
      
         //panel added to frame 
-        frame.add(panel);
+       frame.add(panel);
         
        //frame pack and exit 
         frame.pack();
@@ -42,6 +43,9 @@ private void newUI() {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
+            Object a = e.getSource();
+         if(button==a)    {
+         System.out.println("a");
+         }    
     }
 }
