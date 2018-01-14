@@ -33,13 +33,13 @@ private void newUI() {
         button = new JButton("Search the Twitterverse");
         text= new JTextField(20);
         panel.add(text);
-<<<<<<< HEAD
+//<<<<<<< HEAD
          
         button.addActionListener(this);
      
         //panel added to frame 
        frame.add(panel);
-=======
+//=======
         panel.add(button);
         button.addActionListener(this);
      
@@ -47,7 +47,7 @@ private void newUI() {
 		
         
         frame.add(panel);
->>>>>>> origin/master
+//>>>>>>> origin/master
         
        //frame pack and exit 
         frame.pack();
@@ -58,12 +58,12 @@ private void newUI() {
 
    
     public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
+//<<<<<<< HEAD
             Object a = e.getSource();
          if(button==a)    {
          System.out.println("a");
          }    
-=======
+//=======
         if(button==e.getSource()) {
         	System.out.println("tweet tweet");
         	String tweet= text.getText();
@@ -73,7 +73,7 @@ private void newUI() {
         	
   
         }
->>>>>>> origin/master
+//>>>>>>> origin/master
     }
     private String getLatestTweet(String searchingFor) {
 
