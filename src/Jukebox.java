@@ -25,11 +25,14 @@ import javazoom.jl.player.advanced.AdvancedPlayer;
 public class Jukebox implements Runnable,MouseListener {
 JFrame frame;
 JPanel panel;
-JLabel b1;
-
-
+JLabel L1;
+JLabel L2;
+JButton b3;
+Song s1;
+Song s2;
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(new Jukebox());
+		
 	}
 
            public void run() {
@@ -37,10 +40,14 @@ JLabel b1;
 		// 3. Find an mp3 on your computer or on the Internet.
         	   
 		// 4. Create a Song
-        	  Song s1 = new Song("https://www.youtube.com/watch?v=33HOT3EdNME");
+        s1 = new Song("Waltz of Flowers.mp3");
+      s2 = new Song("Mariposas.mp3");
+        	  
 		// 5. Play the Song
-        	  s1.play();
-        	  s1.stop();
+//        	  System.out.println("a");
+   
+        	  
+        	  //s1.stop();
 		/*
 		 * 6. Create a user interface for your Jukebox so that the user can to
 		 * choose which song to play. You can use can use a different button for
@@ -49,15 +56,26 @@ JLabel b1;
 		 * that was selected.
 		 */
         	  frame = new JFrame();
-        	  frame.setVisible(true);
         	  panel = new JPanel();
-        	  b1 = new JLabel();
-        	  
-        	  panel.add(b1);
-        	  b1.addMouseListener(this);
-        	  
+        	  b3 = new JButton("a");
+        	  L1 = loadImage("Waltz of Flowers.jpg"); 
+        	  L2 = loadImage("Mariposas.jpg");
         	  frame.add(panel);
+        	  panel.add(L2);
+        	  panel.add(L1);
+        	  L1.addMouseListener(this);
+        	  L2.addMouseListener(this);
+        	  frame.setVisible(true);
+        	          	  
+        	  
+	 
+        	 
+//        	  panel.add(b2);
+        	
+//        	  b2.addMouseListener(this);
+        	  
         	  frame.pack();
+        	  
         	  frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
           }
 	/* Use this method to add album covers to your Panel. */
@@ -70,9 +88,17 @@ JLabel b1;
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
-		if(b1==e.getSource()) {
-			System.out.println("h");
-		}
+		if(L1==e.getSource()) {
+			System.out.println("aa");
+						s1.play();
+			s2.stop();
+
+			
+		}else if (L2==e.getSource()) {
+			s2.play();
+			s1.stop();
+			
+		} 
 	}
 
 	@Override
