@@ -1,6 +1,6 @@
 //1. Instantiate some Movie objects (at least 5).
 	//2. Use the Movie class to get the ticket price of one of your movies.
-
+	
 	//3. Instantiate a NetflixQueue.
 	//4. Add your movies to the Netflix queue.
 	//5. Print all the movies in your queue.
@@ -12,9 +12,9 @@
 public class Movie implements Comparable<Movie> {
 
 	private String title;
-	private double stars;
+	private int stars;
 
-	public Movie(String title, double stars) {
+	public Movie(String title, int stars) {
 		this.title = title;
 		this.stars = stars;
 	}
@@ -23,7 +23,7 @@ public class Movie implements Comparable<Movie> {
 		return this.title;
 	}
 
-	public double getRating() {
+	public int getRating() {
 		return this.stars;
 	}
 
@@ -42,8 +42,8 @@ public String getTicketPrice() {
 	}
  
 
-	public double compareTo(Movie otherMovie) {
-		double compareQuantity = otherMovie.getRating();
+	public int compareTo(Movie otherMovie) {
+		int compareQuantity = otherMovie.getRating();
 
 		// return this.stars - compareQuantity; //ascending order
 		return compareQuantity - this.stars; // descending order
