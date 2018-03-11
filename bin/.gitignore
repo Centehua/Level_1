@@ -1,3 +1,4 @@
+/Animal.class
 /Backpack.class
 /BinaryConverter.class
 /Cat.class
@@ -14,6 +15,7 @@
 /Jukebox.class
 /Mariposas.jpg
 /Mariposas.mp3
+/MethodsWorksheet.class
 /Minion.class
 /MinionTest.class
 /Movie.class
@@ -39,5 +41,11 @@
 /fortuneTeller.jpg
 /moo.wav
 /spookyMusic.wav
-/MethodsWorksheet.class
-/Animal.class
+/Microwave.class
+/Popcorn.class
+/Cup.class
+/Kettle$Water.class
+/Kettle.class
+/TeaBag.class
+/TeaMaker.class
+/WhackAMole.class

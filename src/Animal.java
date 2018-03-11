@@ -5,12 +5,12 @@ public class Animal {
 		Animal a1 = new Animal();
 		
 		boolean b1 =a1.catEat("icecream");
-		String s1 = 
+		
 		
 		if(b1==false) {
-			System.out.println("Cats cannot eat" +);
+			System.out.println("Cats cannot eat");
 		}else{
-			System.out.println("Cats can eat"+ );
+			System.out.println("Cats can eat" );
 		} 
 		
 		
