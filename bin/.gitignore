@@ -4,6 +4,7 @@
 /Cat.class
 /ChuckleClicker.class
 /CowTimer.class
+/Cup.class
 /CutenessTV.class
 /DrumKit.class
 /DuelingButtons.class
@@ -13,9 +14,12 @@
 /Horse.class
 /Jeopardy.class
 /Jukebox.class
+/Kettle$Water.class
+/Kettle.class
 /Mariposas.jpg
 /Mariposas.mp3
 /MethodsWorksheet.class
+/Microwave.class
 /Minion.class
 /MinionTest.class
 /Movie.class
@@ -24,6 +28,7 @@
 /Pencil.class
 /Photo.class
 /Platypus.class
+/Popcorn.class
 /Ruler.class
 /SeaCreature.class
 /SeaCreatureRunner.class
@@ -32,20 +37,15 @@
 /Song.class
 /SpamAlot.class
 /Supply.class
+/TeaBag.class
+/TeaMaker.class
 /TeaParty.class
 /Textbook.class
 /Waltz of Flowers.jpg
 /Waltz of Flowers.mp3
+/WhackAMole.class
 /drumkit.jpg
 /drumsound.wav
 /fortuneTeller.jpg
 /moo.wav
 /spookyMusic.wav
-/Microwave.class
-/Popcorn.class
-/Cup.class
-/Kettle$Water.class
-/Kettle.class
-/TeaBag.class
-/TeaMaker.class
-/WhackAMole.class
